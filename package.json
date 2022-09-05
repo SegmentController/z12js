@@ -33,9 +33,6 @@
     "roco",
     "z21"
   ],
-  "dependencies": {
-    "deep-equal": "^2.0.5"
-  },
   "devDependencies": {
     "@types/deep-equal": "^1.0.1",
     "@types/node": "18.7.15",

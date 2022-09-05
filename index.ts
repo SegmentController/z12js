@@ -3,8 +3,6 @@ import { Buffer } from 'node:buffer';
 import { EventEmitter } from 'node:stream';
 import { clearInterval } from 'node:timers';
 
-import deepEqual from 'deep-equal';
-
 import { Z21RecordToBuffer, Z21XBusRecordToArray, createBufferFrom } from './converters';
 import { HWInfoResponse, HWInfoResponseParser, ErrorResponseParser, LocoResponse, LocoResponseParser, SerialNumberResponse, SerialNumberResponseParser, StatusResponse, StatusResponseParser, Z21_HEADER } from './packets';
 
@@ -82,8 +80,7 @@ export class Z21Client extends EventEmitter {
 
         const locoInfo = LocoResponseParser(receivedData);
         if (locoInfo)
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-            if (!this.locoInfos.has(locoInfo.address) || !deepEqual(this.locoInfos.get(locoInfo.address), locoInfo)) {
+            if (!this.locoInfos.has(locoInfo.address) || JSON.stringify(this.locoInfos.get(locoInfo.address)) !== JSON.stringify(locoInfo)) {
                 this.locoInfos.set(locoInfo.address, locoInfo);
                 this.emit('locoInfo', locoInfo);
             }
