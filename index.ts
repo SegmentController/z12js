@@ -14,12 +14,13 @@ const TIMEOUT_MS = 1000;
 
 type ResolverFunction = (receivedData: Buffer) => boolean;
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging, @typescript-eslint/naming-convention
 export declare interface Z21Client {
     on(event: 'error', listener: (error: Error) => void): this;
     on(event: 'debug', listener: (event: string, debugData: any) => void): this;
     on(event: 'locoInfo', listener: (locoInfo: LocoResponse) => void): this;
 }
+// eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class Z21Client extends EventEmitter {
     private ip: string;
     private updClient = createSocket('udp4');
