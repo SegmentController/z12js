@@ -1,4 +1,4 @@
-import { Z21Client } from '../index';
+import { Z21Client } from '../src';
 
 const start = async () => {
     const z21cli = new Z21Client();
