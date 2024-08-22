@@ -24,20 +24,10 @@
     "extendedDiagnostics": false,
     "incremental": false,
     "allowJs": false,
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/@types"
-    ],
-    "rootDirs": [
-      "./"
-    ],
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "rootDirs": ["./"],
     "outDir": "dist"
   },
-  "include": [
-    "./src"
-  ],
-  "exclude": [
-    "test",
-    "examples"
-  ]
+  "include": ["./src"],
+  "exclude": ["test", "examples"]
 }

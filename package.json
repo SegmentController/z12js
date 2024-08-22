@@ -24,9 +24,13 @@
   "homepage": "https://github.com/SegmentController/z21js",
   "scripts": {
     "dev": "nodemon examples/example.ts",
-    "lint": "eslint . --ext .ts",
     "clean": "tsc --build --clean",
     "build": "tsc --build --clean && tsc --build --force",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "fix": "npm run format:fix && npm run lint:fix",
     "npm-publish-patch": "npm run build && npm version patch && npm publish && npm run clean && git push",
     "npm-publish-minor": "npm run build && npm version minor && npm publish && npm run clean && git push"
   },
@@ -36,12 +40,16 @@
   ],
   "devDependencies": {
     "@types/deep-equal": "^1.0.4",
-    "@types/node": "20.9.0",
-    "@typescript-eslint/eslint-plugin": "^6.11.0",
-    "@typescript-eslint/parser": "^6.11.0",
-    "eslint": "^8.53.0",
-    "nodemon": "^3.0.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "@types/node": "22.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "@typescript-eslint/parser": "^8.2.0",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unicorn": "^55.0.0",
+    "prettier": "^3.3.3",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }
